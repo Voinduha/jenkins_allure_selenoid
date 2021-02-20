@@ -13,11 +13,13 @@ public class TestBase {
 
     @BeforeAll
     static void setup() {
-        addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource());
+
         Configuration.startMaximized = true;
         // config for Java + Selenide
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub";
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
     }
+
+
 }
