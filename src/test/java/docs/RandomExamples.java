@@ -2,7 +2,7 @@ package docs;
 
 import org.junit.jupiter.api.Test;
 
-import static utils.RandomUtils.*;
+import static docs.juniors.RandomUtils.*;
 
 
 public class RandomExamples {

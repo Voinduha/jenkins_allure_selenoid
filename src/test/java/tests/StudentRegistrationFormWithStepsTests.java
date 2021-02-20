@@ -38,7 +38,6 @@ public class StudentRegistrationFormWithStepsTests extends TestBase {
         $("#userEmail").val(email);
         $("#genterWrapper").$(byText(gender)).click();
         $("#userNumber").val(mobile);
-        // set date
         $("#dateOfBirthInput").clear();
         $(".react-datepicker__month-select").selectOption(monthOfBirth);
         $(".react-datepicker__year-select").selectOption(yearOfBirth);
