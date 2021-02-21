@@ -1,25 +1,35 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import jdk.nashorn.internal.runtime.PropertyListeners;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import static jdk.nashorn.internal.runtime.PropertyListeners.addListener;
 
 public class TestBase {
     static DesiredCapabilities capabilities = new DesiredCapabilities();
 
     @BeforeAll
     static void setup() {
-
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         Configuration.startMaximized = true;
         // config for Java + Selenide
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub";
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
+
+        // config for Java + Selenium
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("browserName", "chrome");
+//        capabilities.setCapability("browserVersion", "87.0");
+//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+//                "enableVNC", true,
+//                "enableVideo", true
+//        ));
+//        RemoteWebDriver driver = new RemoteWebDriver(
+//                URI.create("http://selenoid:4444/wd/hub").toURL(),
+//                capabilities
+//        );
+
     }
-
-
 }
