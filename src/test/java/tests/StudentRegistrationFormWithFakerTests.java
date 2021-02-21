@@ -15,7 +15,7 @@ public class StudentRegistrationFormWithFakerTests extends TestBase {
                 lastName = faker.name().lastName(),
                 email = faker.internet().emailAddress(),
                 gender = "Other",
-                mobile = faker.number().digits(10),
+                mobile = faker.number().digits(11),
                 dayOfBirth = "10",
                 monthOfBirth = "May",
                 yearOfBirth = "1988",
