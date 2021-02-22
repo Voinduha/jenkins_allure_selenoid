@@ -43,6 +43,4 @@ public class TestBase {
         attachVideo();
         closeWebDriver();
     }
-
-
 }
