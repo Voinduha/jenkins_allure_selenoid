@@ -15,11 +15,12 @@ public class TestBase {
     static void setup() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         Configuration.startMaximized = true;
-
+        Configuration.browser = System.getProperty("browser", "chrome");
         // config for Java + Selenide
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
-        //capabilities.setCapability("enableVideo", true);
+        //capabilities.setCapabili
+        // ty("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub";
         // config for Java + Selenium
@@ -35,7 +36,6 @@ public class TestBase {
 //                capabilities
 //        );
     }
-
     @AfterEach
     public void afterEach() {
         attachScreenshot("Last screenshot");
