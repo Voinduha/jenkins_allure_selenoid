@@ -17,13 +17,14 @@ public class TestBase {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.startMaximized = true;
 
-        if (System.getProperty("remote_driver") != null) {
+        if(System.getProperty("remote_driver") != null) {
             // config for Java + Selenide
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
             Configuration.browserCapabilities = capabilities;
             Configuration.remote = System.getProperty("remote_driver");
+
             // config for Java + Selenium
 //        DesiredCapabilities capabilities = new DesiredCapabilities();
 //        capabilities.setCapability("browserName", "chrome");
@@ -44,7 +45,7 @@ public class TestBase {
         attachScreenshot("Last screenshot");
         attachPageSource();
         attachAsText("Browser console logs", getConsoleLogs());
-        if (System.getProperty("video_storage") != null)
+        if(System.getProperty("video_storage") != null)
             attachVideo();
         closeWebDriver();
     }
