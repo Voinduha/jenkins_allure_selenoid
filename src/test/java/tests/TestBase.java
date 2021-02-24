@@ -14,14 +14,14 @@ public class TestBase {
     @BeforeAll
     static void setup() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+        Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.startMaximized = true;
 
         if (System.getProperty("remote_driver") != null) {
-            Configuration.browser = System.getProperty("browser", "chrome");
             // config for Java + Selenide
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
-
+            capabilities.setCapability("enableVideo", true);
             Configuration.browserCapabilities = capabilities;
             Configuration.remote = System.getProperty("remote_driver");
             // config for Java + Selenium
