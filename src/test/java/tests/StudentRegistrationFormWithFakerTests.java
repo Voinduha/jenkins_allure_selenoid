@@ -75,11 +75,12 @@ public class StudentRegistrationFormWithFakerTests extends TestBase {
 
     @Test
     @Tag("negative")
-    void FormFieldsPopulationNegativeTest() {
+    void negativeFillFormTest() {
 //Test steps
         open("https://demoqa.com/automation-practice-form");
-        $("#submit").click();
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
 // Test Results Verification
-        $(".modal-title").shouldHave(text("Thanks for submitting the form"));
+        $("#submit").click();
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
     }
 }
