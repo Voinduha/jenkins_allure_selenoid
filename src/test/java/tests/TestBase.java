@@ -21,8 +21,7 @@ public class TestBase {
             // config for Java + Selenide
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
-            //capabilities.setCapabili
-            // ty("enableVideo", true);
+
             Configuration.browserCapabilities = capabilities;
             Configuration.remote = System.getProperty("remote_driver");
             // config for Java + Selenium
@@ -38,7 +37,6 @@ public class TestBase {
 //                capabilities
 //        );
         }
-
     }
 
     @AfterEach
@@ -47,7 +45,7 @@ public class TestBase {
         attachPageSource();
         attachAsText("Browser console logs", getConsoleLogs());
         if (System.getProperty("video_storage") != null)
-        attachVideo();
+            attachVideo();
         closeWebDriver();
     }
 }
